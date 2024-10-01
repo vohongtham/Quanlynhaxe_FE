@@ -1,0 +1,112 @@
+/* src/components/Header.css */
+.header-container {
+  background: linear-gradient(to right, #a0c4ff, #bdb2ff);
+  /* Màu nền gradient từ trái sang phải */
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* border-bottom: 5px solid #0288d1; */
+  /* Đường viền dưới cùng */
+}
+
+.header-title h1 {
+  color: #002776;
+  /* Màu chữ xanh đậm */
+  font-family: 'Arial', sans-serif;
+  text-align: center;
+  font-size: 24px;
+  margin: 0;
+}
+
+.header-author p {
+  color: #37474f;
+  /* Màu chữ xám */
+  font-family: 'Arial', sans-serif;
+  font-size: 14px;
+  margin: 0;
+}
+
+/*loggin*/
+.divider:after,
+.divider:before {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #d0cfcf;
+}
+
+.h-custom {
+  height: calc(100% - 73px);
+}
+
+@media (max-width: 450px) {
+  .h-custom {
+    height: 100%;
+  }
+}
+
+/* homepage.css */
+
+.homepage-container {
+  text-align: center;
+  padding: 100px;
+}
+
+.homepage-image {
+  max-width: 200%;
+  height: auto;
+  margin-top: 20px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+}
+
+h2 {
+  font-family: 'Arial', sans-serif;
+  padding-top: 20px;
+}
+
+.container-h3 {
+  color: #002776;
+}
+
+/* table  */
+
+.table-bordered {
+  border-collapse: collapse;
+  width: 70%;
+  border: 1px solid #232222; /* Đường viền ngoài cho bảng */
+}
+
+.table-bordered th, .table-bordered td {
+  border: 1px solid #232222; /* Đường viền cho các ô */
+  padding: 8px;
+  text-align: left;
+}
+
+.table-bordered th {
+  background-color: #131313;
+  color: #111111;
+  font-weight: bold;
+}
+
+.table-bordered thead th {
+  border-top: 2px solid #232222; /* Đường viền trên cùng của bảng tiêu đề */
+}
+
+.table-bordered tr {
+  border-bottom: 1px solid #232222;
+}
+
+.table-bordered tr:last-child {
+  border-bottom: 1px solid #232222;
+}
+
+table {
+  width: 100%; /* Đảm bảo bảng không vượt quá chiều rộng của container */
+}
+
+
+.custom-select {
+  color: black; /* Thay đổi màu chữ cho các thẻ option trong thẻ select có lớp custom-select */
+}

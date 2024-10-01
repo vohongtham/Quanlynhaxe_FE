@@ -1,0 +1,122 @@
+/* src/components/Header.css */
+
+.header-container {
+
+    /* background: linear-gradient(to right, #a0c4ff, #bdb2ff); */
+    /* Màu nền gradient từ trái sang phải */
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    /* Center content horizontally */
+    align-items: center;
+    background: #068441;
+    
+
+}
+
+.header-logo {
+    width: 90px; /* Adjust size as needed */
+    height: auto;
+    margin-left: 50px;
+    color: #fff;
+}
+  
+
+.header-title {
+    text-align: center;
+    /* Center text horizontally within the title container */
+    flex: 1;
+    /* Allows the title to take available space */
+}
+
+.header-title h1 {
+    color: #fff;
+    /* Màu chữ xanh đậm */
+    font-family: 'Arial', sans-serif;
+    font-size: 35px;
+    margin: 0;
+    /* Remove default margin */
+}
+
+
+  
+.d-flex.align-items-center .ml-2 {
+    margin-left: 7px; /* Khoảng cách giữa avatar và email */
+}
+
+
+
+
+/*nav*/
+/* header.css */
+
+
+/* .header-nav {
+    display: flex;
+    justify-content: flex-end;
+    background-color: rgb(193, 213, 225);
+    padding: 0px;
+} */
+
+.p-2 {
+    margin: 0 10px;
+    font-size: 20px;
+    padding-top: 25px;
+    /* color: #fff; */
+}
+
+/* .header-nav a {
+    text-decoration: none;
+    /* color: #000; 
+} 
+*/
+
+/* .header-nav a:hover {
+    text-decoration: underline;
+} */
+
+
+
+/* src/components/footer.css */
+.footer-container {
+    background: #068441;
+    /* Background color */
+    color: #ffffff;
+    /* Text color */
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    /* Center content horizontally */
+    align-items: center;
+    position: fixed;
+    /* Fixed position at the bottom */
+    bottom: 0;
+    width: 100%;
+    /* Full width */
+}
+
+.footer-content {
+    text-align: center;
+    /* Center text horizontally */
+    font-family: 'Arial', sans-serif;
+}
+
+.footer-content p {
+    margin: 0;
+    font-size: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

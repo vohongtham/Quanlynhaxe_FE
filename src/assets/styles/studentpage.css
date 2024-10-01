@@ -1,0 +1,45 @@
+/* Main layout for the student page */
+.student-page {
+  display: flex;
+  min-height: 80vh; /* Use min-height instead of height */
+  background-color: #ebe8e8;  /* Light background */
+  overflow: hidden;  /* Prevent page-level scrolling */
+}
+
+/* Sidebar section */
+.student-page .sidebar {
+  width: 250px;
+  background-color: #2c3e50;  /* Dark sidebar background */
+  /* padding: 20px; */
+  color: white;
+  min-height: 80vh;  /* Ensure the sidebar takes up at least the height of the viewport */
+  box-sizing: border-box;
+}
+
+/* Main content area */
+.student-page .content {
+  flex: 1;
+  /* padding: 20px; */
+  justify-content: center;   
+  box-sizing: border-box;  /* Ensure padding doesn't affect the content's height */
+  overflow-y: auto;  /* Scroll only if content overflows */
+  min-height: 80vh;  /* Ensures the content is at least the height of the viewport */
+  margin-left: 0;
+  margin: 15px;
+}
+
+
+
+/* Ensure h1 or any large text elements don’t add extra space */
+.student-page h1 {
+  font-size: 24px;
+  color: #34495e;
+  margin-bottom: 20px;
+}
+
+
+.content {
+  margin-left: 250px; /* Chiều rộng của sidebar */
+  /* padding: 10px; */
+}
+  

@@ -1,0 +1,37 @@
+.sidebar-student {
+    height: 80vh;
+    width: 250px;
+    /* position: fixed; */
+    top: 0;
+    left: 0;
+    background-color: #aebbd1;
+    color: #333;
+    padding: 20px;
+    border-right: 1px solid #ddd;
+    padding-top: 20px;
+  }
+  
+  .sidebar-student h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .sidebar-student ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .sidebar-student ul li {
+    margin: 15px 0;
+  }
+  
+  .sidebar-student ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+  }
+  
+  .sidebar-student ul li a:hover {
+    text-decoration: underline;
+  }
+  

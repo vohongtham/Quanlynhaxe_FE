@@ -1,0 +1,38 @@
+/* .student-info {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+} */
+
+.form-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;  /* Căn giữa các phần tử trong form */
+    align-items: center;      /* Căn giữa theo chiều dọc */
+    width: 100%;
+    max-width: 1400px;
+    gap: 20px; /* Tạo khoảng cách giữa các cột */
+    margin: 0 auto; /* Căn giữa toàn bộ form trong trang */
+}
+
+.form-section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    flex: 1;  /* Đảm bảo mỗi section chiếm không gian đều */
+    min-width: 300px; /* Đặt chiều rộng tối thiểu cho các cột */
+}
+
+.button-section {
+    margin-top: 20px;
+    text-align: right;
+}
+
+.form-label-bold {
+    font-weight: bold;
+}
+
+.form-control-wide {
+    width: 100%;
+    max-width: 1400px;
+}
