@@ -29,8 +29,12 @@ class ChiTietRaVaoService {
     async add(data) {
         try {
             const response = await this.api.post("/add", data);
+            // Thông báo khi thêm thành công
+            console.log("Thêm xe thành công:", response.data);
+
             return response.data;
         } catch (error) {
+            console.error("Error saving vehicle data:", error);
             throw new Error(`Error adding ChiTietRaVao record: ${error.message}`);
         }
     }

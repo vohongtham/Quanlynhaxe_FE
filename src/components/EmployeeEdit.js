@@ -11,7 +11,8 @@ function EmployeeEdit({ show, handleClose, user, refreshData  }) {
         GioiTinh: '',
         NgaySinh: '',
         Ma_BaiXe: '',
-        Ma_Quyen: ''
+        Ma_Quyen: '',
+        SDT: ''
     });
 
     // Cập nhật form data khi prop `user` thay đổi
@@ -22,8 +23,8 @@ function EmployeeEdit({ show, handleClose, user, refreshData  }) {
                 Email: user.Email || '',
                 GioiTinh: user.GioiTinh || '',
                 NgaySinh: user.NgaySinh || '',
-                Ma_BaiXe: user.Ma_BaiXe || '',
-                Ma_Quyen: user.Ma_Quyen || ''
+                Ma_Quyen: user.Ma_Quyen || '',
+                SDT: user.SDT || ''
             });
         }
     }, [user]);
@@ -37,41 +38,24 @@ function EmployeeEdit({ show, handleClose, user, refreshData  }) {
         }));
     };
 
-    // Handle form submit
-    // const handleSubmit = async () => {
-    //     try {
-    //         const response = await UserService.update(user.Ma_user, formData);
-    //         console.log("Update response:", response);  // Check the response
-            
-    //         toast.success("User updated successfully!");
-    //         refreshData();
-    //         handleClose();
-    //     } catch (error) {
-    //         console.error("Update failed:", error);  // Log the error
-    //         toast.error("Failed to update user. Please try again.");
-    //     }
-    // };
-
     const handleSubmit = async () => {
         try {
             const response = await UserService.update(user.Ma_user, formData);
             console.log("Update response:", response);  // Check the response
             
-            toast.success("User updated successfully!");
+            toast.success("Cập nhật thành công!");
             handleClose();
             refreshData();  // Call the refresh function after successful update
         } catch (error) {
             console.error("Update failed:", error);  // Log the error
-            toast.error("Failed to update user. Please try again.");
+            toast.error("Cập nhật không thành công. Vui lòng cập nhật lại!");
         }
     };
     
-    
-
     return (
         <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
-                <Modal.Title>Chỉnh sửa thông tin nhân viên</Modal.Title>
+                <Modal.Title>Cập nhật thông tin nhân viên</Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 <Form>
@@ -115,23 +99,23 @@ function EmployeeEdit({ show, handleClose, user, refreshData  }) {
                         />
                     </Form.Group>
                     <Form.Group controlId="formMaBaiXe">
-                        <Form.Label>Mã bãi xe:</Form.Label>
+                        <Form.Label>Số Điện Thoại:</Form.Label>
                         <Form.Control
                             type="text"
-                            name="Ma_BaiXe"
-                            value={formData.Ma_BaiXe}
+                            name="SDT"
+                            value={formData.SDT}
                             onChange={handleChange}
-                            placeholder="Nhập mã bãi xe"
+                            placeholder="Nhập SDT"
                         />
                     </Form.Group>
-                    <Form.Group controlId="formMaBaiXe">
+                    <Form.Group controlId="formMaQuyen">
                         <Form.Label>Mã quyền:</Form.Label>
                         <Form.Control
                             type="text"
-                            name="Ma_BaiXe"
+                            name="Ma_Quyen"
                             value={formData.Ma_Quyen}
                             onChange={handleChange}
-                            placeholder="Nhập mã bãi xe"
+                            placeholder="Nhập mã quyền"
                         />
                     </Form.Group>
                 </Form>

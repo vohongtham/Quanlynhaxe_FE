@@ -22,8 +22,11 @@ const EmployeeAdd = () => {
             .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&!]).*$/, 'Mật khẩu phải chứa ít nhất một chữ viết hoa, một chữ viết thường, một số và một ký tự đặc biệt.'),
         GioiTinh: Yup.string().required('Giới tính không được bỏ trống.'),
         NgaySinh: Yup.date().required('Ngày sinh không được bỏ trống.'),
-        Ma_BaiXe: Yup.string().required('Mã bãi xe không được bỏ trống.'),
         Ma_Quyen: Yup.string().required('Mã quyền không được bỏ trống.'),
+        SDT: Yup.string()
+            .required('Số điện thoại không được bỏ trống.')
+            .matches(/^[0-9]+$/, 'Số điện thoại phải là số.')
+            .min(10, 'Số điện thoại phải có ít nhất 10 chữ số.'),
     });
 
     const handleSubmit = async (values, { setSubmitting }) => {
@@ -38,7 +41,7 @@ const EmployeeAdd = () => {
                 toast.error(error.response.data.message || 'Thêm nhân viên không thành công do lỗi từ máy chủ.');  // Hiển thị lỗi từ server
             } else {
                 console.error('Error:', error);
-                toast.error('Email đã được sử dụng.');  // Hiển thị lỗi chung
+                toast.error('Thêm nhân viên thất bại: Email đã được sử dụng.');  // Hiển thị lỗi chung
             }
         }
         setSubmitting(false);
@@ -69,46 +72,66 @@ const EmployeeAdd = () => {
                                 Password: '',
                                 GioiTinh: '',
                                 NgaySinh: '',
-                                Ma_BaiXe: '',
                                 Ma_Quyen: '',
+                                SDT: '',
                             }}
                             validationSchema={validationSchema}
                             onSubmit={handleSubmit}
                         >
                             {({ isSubmitting }) => (
                                 <Form>
-                                    <BootstrapForm.Group controlId="Ten_user">
-                                        <BootstrapForm.Label>Tên nhân viên</BootstrapForm.Label>
-                                        <Field
-                                            type="text"
-                                            name="Ten_user"
-                                            as={InputField}
-                                            placeholder="Nhập tên nhân viên"
-                                        />
-                                        <ErrorMessage name="Ten_user" component="div" className="text-danger" />
-                                    </BootstrapForm.Group>
-
-                                    <BootstrapForm.Group controlId="Email">
-                                        <BootstrapForm.Label>Email</BootstrapForm.Label>
-                                        <Field
-                                            type="email"
-                                            name="Email"
-                                            as={InputField}
-                                            placeholder="Nhập Email"
-                                        />
-                                        <ErrorMessage name="Email" component="div" className="text-danger" />
-                                    </BootstrapForm.Group>
-
-                                    <BootstrapForm.Group controlId="Password">
-                                        <BootstrapForm.Label>Password</BootstrapForm.Label>
-                                        <Field
-                                            type="password"
-                                            name="Password"
-                                            as={InputField}
-                                            placeholder="Nhập mật khẩu"
-                                        />
-                                        <ErrorMessage name="Password" component="div" className="text-danger" />
-                                    </BootstrapForm.Group>
+                                    <Row>
+                                        <Col md={6}>
+                                            <BootstrapForm.Group controlId="Ten_user">
+                                                <BootstrapForm.Label>Tên nhân viên</BootstrapForm.Label>
+                                                <Field
+                                                    type="text"
+                                                    name="Ten_user"
+                                                    as={InputField}
+                                                    placeholder="Nhập tên nhân viên"
+                                                />
+                                                <ErrorMessage name="Ten_user" component="div" className="text-danger" />
+                                            </BootstrapForm.Group>
+                                        </Col>
+                                        <Col md={6}>
+                                            <BootstrapForm.Group controlId="Email">
+                                                <BootstrapForm.Label>Email</BootstrapForm.Label>
+                                                <Field
+                                                    type="email"
+                                                    name="Email"
+                                                    as={InputField}
+                                                    placeholder="Nhập Email"
+                                                />
+                                                <ErrorMessage name="Email" component="div" className="text-danger" />
+                                            </BootstrapForm.Group>
+                                        </Col>
+                                    </Row>
+                                    
+                                    <Row>
+                                        <Col md={6}>
+                                            <BootstrapForm.Group controlId="Password">
+                                                <BootstrapForm.Label>Password</BootstrapForm.Label>
+                                                <Field
+                                                    type="password"
+                                                    name="Password"
+                                                    as={InputField}
+                                                    placeholder="Nhập mật khẩu"
+                                                />
+                                                <ErrorMessage name="Password" component="div" className="text-danger" />
+                                            </BootstrapForm.Group>
+                                        </Col>
+                                        <Col md={6}>
+                                            <BootstrapForm.Group controlId="Ma_Quyen">
+                                                <BootstrapForm.Label>Quyền đăng nhập</BootstrapForm.Label>
+                                                <Field as="select" name="Ma_Quyen" className="form-control">
+                                                    <option value="">Chọn quyền đăng nhập</option>
+                                                    <option value="MQAD">Quản trị viên (MQAD)</option>
+                                                    <option value="MQNV">Nhân viên (MQNV)</option>
+                                                </Field>
+                                                <ErrorMessage name="Ma_Quyen" component="div" className="text-danger" />
+                                            </BootstrapForm.Group>
+                                        </Col>
+                                    </Row>
 
                                     <Row>
                                         <Col md={6}>
@@ -136,32 +159,21 @@ const EmployeeAdd = () => {
                                             </BootstrapForm.Group>
                                         </Col>
                                     </Row>
-
                                     <Row>
-                                        <Col md={6}>
-                                            <BootstrapForm.Group controlId="Ma_BaiXe">
-                                                <BootstrapForm.Label>Mã Bãi Xe</BootstrapForm.Label>
+                                    <Col md={6}>
+                                            <BootstrapForm.Group controlId="SDT">
+                                                <BootstrapForm.Label >Số điện thoại</BootstrapForm.Label>
                                                 <Field
-                                                    name="Ma_BaiXe"
-                                                    as={InputField}
-                                                    placeholder="Nhập mã bãi xe"
+                                                    type="text"
+                                                    name="SDT"
+                                                    as={BootstrapForm.Control}
+                                                    placeholder="Nhập số điện thoại"
                                                 />
-                                                <ErrorMessage name="Ma_BaiXe" component="div" className="text-danger" />
-                                            </BootstrapForm.Group>
-                                        </Col>
-
-                                        <Col md={6}>
-                                            <BootstrapForm.Group controlId="Ma_Quyen">
-                                                <BootstrapForm.Label>Mã Quyền</BootstrapForm.Label>
-                                                <Field
-                                                    name="Ma_Quyen"
-                                                    as={InputField}
-                                                    placeholder="Nhập mã quyền của nhân viên"
-                                                />
-                                                <ErrorMessage name="Ma_Quyen" component="div" className="text-danger" />
+                                                <ErrorMessage name="SDT" component="div" className="text-danger" />
                                             </BootstrapForm.Group>
                                         </Col>
                                     </Row>
+
 
                                     <div className="text-center mt-3">
                                         <Button type="submit" variant="primary" disabled={isSubmitting}>

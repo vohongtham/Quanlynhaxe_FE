@@ -15,7 +15,7 @@ const VehicleList = () => {
     const [selectedVehicle, setSelectedVehicle] = useState(null);
     const [isModalOpen, setModalOpen] = useState(false);
 
-    const itemsPerPage = 5;
+    const itemsPerPage = 6;
 
     const fetchVehicles = async () => {
         try {
@@ -119,7 +119,7 @@ const VehicleList = () => {
                         </button>
                     </div>
 
-                    <h4 className="text-uppercase text-center">Danh Sách Phương Tiện</h4>
+                    <h4 className="text-uppercase text-center">THÔNG TIN XE SINH VIÊN</h4>
 
                     <table className="table table-bordered">
                         <thead>

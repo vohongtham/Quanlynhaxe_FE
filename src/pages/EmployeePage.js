@@ -13,7 +13,7 @@ const HomePage = ({  }) => {
         backgroundImage: `url(${backGroundIMG})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        minHeight: '80vh',
+        minHeight: '90vh',
         marginTop: '-25px',
       }}
     >
@@ -33,7 +33,7 @@ const HomePage = ({  }) => {
 
           {/* Card 3 - Merchandise Management */}
           <div className="col-md-4">
-            <Link to="#" className="text-decoration-none">
+            <Link to="/vehicleindentification/page" className="text-decoration-none">
               <div className="card" style={{ marginTop: '150px', backgroundColor: '#C4DAD2',  fontSize: '24px'}}>
                 <div className="text-center card-header card-3 white-header">Quản lý Xe Ra/Vào</div>
                 <div className="card-body text-center">
@@ -45,7 +45,7 @@ const HomePage = ({  }) => {
 
           {/* Card 4 - Order Management */}
           <div className="col-md-4">
-            <Link to="/statistical" className="text-decoration-none">
+            <Link to="/statistical/daily-revenue" className="text-decoration-none">
               <div className="card" style={{ marginTop: '150px', backgroundColor: '#C4DAD2', fontSize: '24px'}}>
                 <div className="text-center card-header card-4 white-header">Thống kê</div>
                 <div className="card-body text-center">

@@ -41,19 +41,33 @@ function StudentEdit({ show, handleClose, student, refreshData }) {
 
     // console.log("refreshData:", refreshData);
     // Handle form submit
+    // const handleSubmit = async () => {
+    //     try {
+    //         const response = await StudentService.update(student.Mssv, formData);
+    
+    //         if (response?.message === "Update success!") {
+    //             toast.success("Student updated successfully!");
+    //             refreshData(); // Call refreshData if it exists
+    //             handleClose();
+    //         } else {
+    //             toast.error("Failed to update student. Please check the details and try again.");
+    //         }
+    //     } catch (error) {
+    //         toast.error("An error occurred. Please try again later.");
+    //     }
+    // };
+
     const handleSubmit = async () => {
         try {
             const response = await StudentService.update(student.Mssv, formData);
-    
-            if (response?.message === "Update success!") {
-                toast.success("Student updated successfully!");
-                refreshData?.(); // Call refreshData if it exists
-                handleClose();
-            } else {
-                toast.error("Failed to update student. Please check the details and try again.");
-            }
+            console.log("Update response:", response);  // Check the response
+
+            toast.success("Cập nhật thành công!");
+            refreshData(); // Call refreshData if it exists
+            handleClose();
         } catch (error) {
-            toast.error("An error occurred. Please try again later.");
+            console.error("Update failed:", error);  // Log the error
+            toast.error("Cập nhật không thành công. Vui lòng cập nhật lại!");
         }
     };
     
@@ -73,6 +87,7 @@ function StudentEdit({ show, handleClose, student, refreshData }) {
                             value={formData.Mssv}
                             onChange={handleChange}
                             placeholder="Enter Mssv"
+                            readOnly
                         />
                     </Form.Group>
                     <Form.Group controlId="formTenSV">
@@ -138,7 +153,7 @@ function StudentEdit({ show, handleClose, student, refreshData }) {
             </Modal.Body>
             <Modal.Footer>
                 <Button variant="primary" onClick={handleSubmit}>
-                    Lưu
+                    Lưu thay đổi
                 </Button>
                 <Button variant="secondary" onClick={handleClose}>
                     Đóng

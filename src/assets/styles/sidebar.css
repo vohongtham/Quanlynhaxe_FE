@@ -1,10 +1,11 @@
 .sidebar-student {
-    height: 80vh;
+    height: 90vh;
     width: 250px;
     /* position: fixed; */
     top: 0;
     left: 0;
-    background-color: #aebbd1;
+    /* background-color: #8caee9; */
+    background-color: #ddd;
     color: #333;
     padding: 20px;
     border-right: 1px solid #ddd;

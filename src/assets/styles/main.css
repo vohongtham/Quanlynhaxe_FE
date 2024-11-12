@@ -66,6 +66,12 @@ h2 {
   padding-top: 20px;
 }
 
+h4 {
+  font-family: 'Arial', sans-serif;
+  padding-left: 30px;
+  color: #002776;
+}
+
 .container-h3 {
   color: #002776;
 }
@@ -109,4 +115,104 @@ table {
 
 .custom-select {
   color: black; /* Thay đổi màu chữ cho các thẻ option trong thẻ select có lớp custom-select */
+}
+
+
+
+ /* trang nhận diện */
+
+.image-preview-container {
+  margin-top: 0px;
+  margin-left: 10px;
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+  height: 250px;
+  border: 2px solid #ddd;
+  /* padding: 10px; */
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-preview {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 5px;
+}
+
+.placeholder {
+  color: #888;
+}
+
+
+/* Khung crop ảnh biển số */
+.fixed-frame {
+  width: 150px; /* Chiều rộng khung */
+  height: 120px; /* Chiều cao khung */
+  border: 1px solid #393838; /* Đường viền khung */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f9f9f9; /* Màu nền nhạt */
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+.frame-licenseplate {
+  width: 200px; /* Chiều rộng khung */
+  height: 50px; /* Chiều cao khung */
+  border: 1px solid #393838; /* Đường viền khung */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f9f9f9; /* Màu nền nhạt */
+  margin-top: 5px;
+  margin-left: 20px;
+}
+
+.fixed-frame img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; /* Đảm bảo ảnh được hiển thị đầy đủ trong khung */
+}
+
+.license-plate-container {
+  display: flex;           /* Sắp xếp các phần tử con theo hàng ngang */
+  align-items: center;      /* Căn giữa theo trục dọc */
+  gap: 10px;                /* Khoảng cách giữa các phần tử */
+}
+
+
+.frame-image {
+  width: 295px; /* Chiều rộng khung */
+  height: 221px; /* Chiều cao khung */
+  border: 1px solid #393838; /* Đường viền khung */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f9f9f9; /* Màu nền nhạt */
+
+}
+
+
+/*frame ảnh đối chiếu */
+.fixed-frame1 {
+  width: 130px; /* Chiều rộng khung */
+  height: 100px; /* Chiều cao khung */
+  border: 1px solid #393838; /* Đường viền khung */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f9f9f9; /* Màu nền nhạt */
+  /* margin-top: 10px;
+  margin-left: 20px; */
+}
+
+
+.fixed-image {
+  max-width: 100%; /* Prevent the image from exceeding the frame width */
+  max-height: 100%; /* Prevent the image from exceeding the frame height */
+  object-fit: contain; /* Maintain aspect ratio */
 }

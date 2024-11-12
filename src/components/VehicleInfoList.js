@@ -158,7 +158,7 @@ const VehicleInfoList = () => {
                             <i className="bi bi-search"></i>
                         </button>
                     </div>
-                    <h4 className="text-uppercase text-center">Thông Tin Xe Của Sinh Viên</h4>
+                    <h4 className="text-uppercase text-center">THÔNG TIN XE</h4>
                     <table className="table table-bordered">
                         <thead>
                             <tr>

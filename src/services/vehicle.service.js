@@ -89,13 +89,28 @@ class XeService {
     }
 
     // Add a new vehicle
+    // async add(data) {
+    //     try {
+    //         return (await this.api.post("/add", data)).data;
+    //     } catch (error) {
+    //         throw new Error(`Error adding vehicle: ${error.message}`);
+    //     }
+    // }
     async add(data) {
         try {
-            return (await this.api.post("/add", data)).data;
+            const response = await this.api.post("/add", data);
+            return response.data;
         } catch (error) {
-            throw new Error(`Error adding vehicle: ${error.message}`);
+            // Check if the error response is available and extract the message
+            if (error.response) {
+                const errorMessage = error.response.data.error || "Error adding vehicle.";
+                throw new Error(`${errorMessage}`);
+            } else {
+                throw new Error(`${error.message}`);
+            }
         }
     }
+    
 
     // Update a vehicle by BienSoXe
     async update(BienSoXe, data) {

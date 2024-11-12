@@ -1,33 +1,43 @@
-import React, { useEffect } from 'react';
+
+import React, { useEffect, useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 function Logout({ onLogout }) {
   const navigate = useNavigate();
+  const [hasLoggedOut, setHasLoggedOut] = useState(false);
 
-  useEffect(() => {
-    // Remove user data from local storage
+  const handleLogout = useCallback(() => {
+    // Xóa dữ liệu người dùng từ local storage
     localStorage.removeItem('token');
     localStorage.removeItem('userEmail');
     localStorage.removeItem('ma_quyen');
     localStorage.removeItem('userRole');
 
-    // Notify parent component about logout
-    if (onLogout) onLogout();
+    // Gửi sự kiện để thông báo thay đổi localStorage
+    window.dispatchEvent(new Event('storageChange'));
 
-    // Show a success message
+    // Thông báo cho component cha về việc đăng xuất
+    if (onLogout) {
+      onLogout();
+    }
+
+    // Hiển thị thông báo đăng xuất thành công
     toast.success('Đăng xuất thành công.');
+    console.log("Thông báo đăng xuất đã hiển thị");
 
-    // Redirect to home page
+    // Điều hướng về trang chủ
     navigate('/');
-
   }, [navigate, onLogout]);
 
-  return null;  // This component doesn't need to render anything
+  useEffect(() => {
+    if (!hasLoggedOut) {
+      handleLogout();
+      setHasLoggedOut(true); // Đặt biến hasLoggedOut để tránh gọi lại
+    }
+  }, [hasLoggedOut, handleLogout]);
+
+  return null; // Component này không cần render gì cả
 }
 
 export default Logout;
-
-
-
-

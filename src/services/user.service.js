@@ -24,13 +24,31 @@ class UserService {
     }
 
     // Add a new user
+    // async add(data) {
+    //     try {
+    //         return (await this.api.post("/add", data)).data;
+    //     } catch (error) {
+    //         throw new Error(`Error adding user: ${error.message}`);
+    //     }
+    // }
+
+    // Add a new user
     async add(data) {
         try {
-            return (await this.api.post("/add", data)).data;
+            const response = await this.api.post("/add", data);
+            return response.data; // Return the response data on success
         } catch (error) {
-            throw new Error(`Error adding user: ${error.message}`);
+            // Check if the error has a response (meaning the server responded with an error)
+            if (error.response) {
+                // Extract and throw the specific error message from the server response
+                throw new Error(`${error.response.data.error || error.message}`);
+            } else {
+                // Handle network errors or other issues where there's no response
+                throw new Error(`${error.message}`);
+            }
         }
     }
+
 
     // Update a user by Ma_user
     async update(Ma_user, data) {

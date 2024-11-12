@@ -1,17 +1,17 @@
 /* src/components/Header.css */
 
 .header-container {
-
-    /* background: linear-gradient(to right, #a0c4ff, #bdb2ff); */
+    background: linear-gradient(to right, #068441, #6b52f6);
     /* Màu nền gradient từ trái sang phải */
     padding: 10px 20px;
     display: flex;
     justify-content: center;
     /* Center content horizontally */
     align-items: center;
-    background: #068441;
-    
-
+    /* background: #068441;    */
+    /* min-height: 60px; /* Chiều cao tối thiểu */
+    /* max-height: 100px; /* Chiều cao tối đa */  
+    height: 65px; /* Đặt độ cao cố định cho header */
 }
 
 .header-logo {
@@ -71,15 +71,16 @@
 } 
 */
 
-/* .header-nav a:hover {
+.header-nav a:hover {
     text-decoration: underline;
-} */
+}
 
 
 
 /* src/components/footer.css */
 .footer-container {
-    background: #068441;
+    /* background: #068441; */
+    background: linear-gradient(to right,#068441, #664cfc );
     /* Background color */
     color: #ffffff;
     /* Text color */

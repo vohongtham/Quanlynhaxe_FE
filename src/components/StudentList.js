@@ -14,29 +14,30 @@ const StudentTable = () => {
     const [searchTerm, setSearchTerm] = useState(''); // Search term state
     const [loading, setLoading] = useState(true); // Loading state
     const [error, setError] = useState(null); // Error state
-    const itemsPerPage = 5; // Items per page
+    const itemsPerPage = 6; // Items per page
     const [selectedStudent , setSelectedStudent ] = useState(null); // State to store selected user for editing
     const [isModalOpen, setModalOpen] = useState(false); // State to control modal visibility
 
     // Define the refreshData function
-    const refreshData = () => {
-        // Logic to refresh data, such as fetching updated student list
-        console.log("Data refreshed");
+    // const refreshData = () => {
+    //     // Logic to refresh data, such as fetching updated student list
+    //     console.log("Data refreshed");
+    // };
+
+    const fetchStudents = async () => {
+        try {
+            const data = await StudentService.getAll(); // Fetch data from API
+            setStudents(data); // Set students state with data from API
+        } catch (err) {
+            setError('Không thể lấy dữ liệu sinh viên.'); // Set error message
+            console.error("Failed to fetch students:", err); // Log error
+        } finally {
+            setLoading(false); // Stop loading
+        }
     };
 
     // Fetch data when component mounts
     useEffect(() => {
-        const fetchStudents = async () => {
-            try {
-                const data = await StudentService.getAll(); // Fetch data from API
-                setStudents(data); // Set students state with data from API
-            } catch (err) {
-                setError('Không thể lấy dữ liệu sinh viên.'); // Set error message
-                console.error("Failed to fetch students:", err); // Log error
-            } finally {
-                setLoading(false); // Stop loading
-            }
-        };
         fetchStudents();
     }, []);
 
@@ -55,7 +56,7 @@ const StudentTable = () => {
             try {
                 await StudentService.delete(Mssv); // Perform delete via API
                 setStudents(students.filter(student => student.Mssv !== Mssv)); // Remove deleted student from list
-                toast.success('Sinh viên đã được xóa thành công!'); // Success message
+                toast.success('Xóa sinh viên thành công!'); // Success message
             } catch (err) {
                 console.error("Failed to delete student:", err);
                 toast.error('Xóa sinh viên thất bại. Vui lòng thử lại.'); // Error message
@@ -102,7 +103,9 @@ const StudentTable = () => {
             student.Ten_SV.toLowerCase().includes(searchValue) ||  // Search by student name
             student.Email.toLowerCase().includes(searchValue) ||   // Search by email
             student.Ma_Lop.toLowerCase().includes(searchValue) ||   // Search by class ID
-            student.GioiTinh.toLowerCase().includes(searchValue)    // Search by gender
+            student.GioiTinh.toLowerCase().includes(searchValue) ||   // Search by gender
+            student.NgaySinh.toLowerCase().includes(searchValue) ||
+            student.SDT.toLowerCase().includes(searchValue) 
         );
     });
 
@@ -129,7 +132,7 @@ const StudentTable = () => {
                             <i className="bi bi-search"></i>
                         </button>
                     </div>
-                    <h4 className="text-uppercase text-center"> DANH SÁCH SINH VIÊN</h4>
+                    <h4 className="text-uppercase text-center">THÔNG TIN SINH VIÊN</h4>
                     <table className="table table-bordered">
                         <thead>
                             <tr>
@@ -183,7 +186,7 @@ const StudentTable = () => {
                                 ))
                             ) : (
                                 <tr>
-                                    <td colSpan="9" className="text-center">
+                                    <td colSpan="10" className="text-center">
                                         {searchTerm ? 'Không tìm thấy sinh viên phù hợp' : 'Không có sinh viên nào'}
                                     </td>
                                 </tr>
@@ -197,7 +200,7 @@ const StudentTable = () => {
                             show={isModalOpen}
                             handleClose={closeModal}
                             student={selectedStudent}
-                            refreshData={refreshData} // Ensure refreshData is passed
+                            refreshData={fetchStudents} // Ensure refreshData is passed
                         />
                     )}
 

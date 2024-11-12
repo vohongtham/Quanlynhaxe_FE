@@ -94,9 +94,6 @@ const StudentInfo = () => {
         }
     };
 
-
-
-
     const handleChange = (e) => {
         const { name, value } = e.target;
         setStudentInfo({ ...studentInfo, [name]: value });

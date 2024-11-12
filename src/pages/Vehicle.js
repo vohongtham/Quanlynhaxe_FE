@@ -50,7 +50,7 @@ const VehiclePage = () => {
         <div>
             <Navbar />
             <div className="container">
-                <div className="mt-2 col-md-12">
+                <div className="col-md-12">
                     {filteredVehiclesCount > 0 ? (
                         <VehicleList
                             refreshList={retrieveVehicles}
@@ -61,9 +61,9 @@ const VehiclePage = () => {
                     ) : (
                         <p>Không có thông tin xe nào.</p>
                     )}
-                    <div className="row mt-3">
+                    <div className="row mt-2">
                         <div className="col d-flex justify-content-between align-items-center">
-                            <button className="btn btn-sm btn-success" onClick={goToAdd}>
+                            <button className="btn btn-sm btn-primary" onClick={goToAdd}>
                                 <i className="fas fa-plus"></i> Thêm mới
                             </button>
                             <button className="btn btn-sm btn-primary" onClick={retrieveVehicles}>

@@ -147,15 +147,33 @@ class SinhVienService {
         }
     }
 
+    // // Add a new student
+    // async add(data) {
+    //     try {
+    //         const response = await this.api.post("/add", data);
+    //         return response.data;
+    //     } catch (error) {
+    //         throw new Error(`Error adding student: ${error.message}`);
+    //     }
+    // }
+
     // Add a new student
     async add(data) {
         try {
             const response = await this.api.post("/add", data);
-            return response.data;
+            return response.data; // Return the response data on success
         } catch (error) {
-            throw new Error(`Error adding student: ${error.message}`);
+            // Check if the error has a response (meaning the server responded with an error)
+            if (error.response) {
+                // Extract and throw the specific error message from the server response
+                throw new Error(` ${error.response.data.error || error.message}`);
+            } else {
+                // Handle network errors or other issues where there's no response
+                throw new Error(` ${error.message}`);
+            }
         }
     }
+
 
     // Update student information by Mssv
     async update(Mssv, data) {

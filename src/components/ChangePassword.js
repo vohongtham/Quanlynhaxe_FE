@@ -74,6 +74,9 @@ const ChangePassword = ({ show, handleClose }) => {
       localStorage.removeItem('userRole');
       localStorage.removeItem('userId');
 
+      // Gửi sự kiện thông báo đã xóa thông tin người dùng
+      window.dispatchEvent(new Event('storageChange'));
+
       handleClose(); // Đóng modal sau khi cập nhật thành công
       navigate('/login'); // Điều hướng đến trang đăng nhập
     } catch (error) {

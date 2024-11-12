@@ -4,7 +4,7 @@ import { useNavigate, Link } from "react-router-dom";
 import EmployeeList from '../components/EmployeeList';
 import UserService from '../services/user.service';
 import '../assets/styles/main.css';
-import Navbar from "../components/Navbar";
+// import Navbar from "../components/Navbar";
 
 const EmployeePage = () => {
     const [users, setEmployees] = useState([]); // Dữ liệu nhân viên gốc
@@ -53,7 +53,7 @@ const EmployeePage = () => {
                     <div className="collapse navbar-collapse" id="navbarNav">
                         <ul className="navbar-nav mr-auto">
                             <li className="nav-item active">
-                                <Link className="navbar-brand" to="/employees">Danh sách nhân viên</Link>
+                                <Link className="navbar-brand" to="/employees">Thông tin nhân viên</Link>
                             </li>
                         </ul>
                     </div>
@@ -62,8 +62,7 @@ const EmployeePage = () => {
 
             <div className="justify-content-center">
                 <div className="container">
-                    <div className="mt-2 col-md-12">
-                        {/* <h4 className="text-uppercase text-center">Danh sách Nhân Viên</h4> */}
+                    <div className="col-md-12">
                         {filteredEmployeesCount > 0 ? (
                             <EmployeeList
                                 refreshList={retrieveEmployees}
@@ -74,10 +73,10 @@ const EmployeePage = () => {
                         ) : (
                             <p>Không có nhân viên nào.</p>
                         )}
-                        <div className="row mt-3">
+                        <div className="row mt-2">
                             <div className="col d-flex justify-content-between align-items-center">
                                 <button className="btn btn-sm btn-primary" onClick={goToAdd}>
-                                    <i classN="bi bi-person-plus-fill"></i> Thêm mới
+                                    <i className="bi bi-person-plus-fill"></i> Thêm mới
                                 </button>
                                 <button className="btn btn-sm btn-primary" onClick={retrieveEmployees} disabled={loading}>
                                     <i className={`fas fa-redo ${loading ? 'fa-spin' : ''}`}></i> {loading ? "Đang làm mới..." : "Làm mới"}

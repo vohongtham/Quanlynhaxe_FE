@@ -45,7 +45,7 @@ const StudentPage = () => {
         <div>
             <Navbar/>
             <div className="container">
-                <div className="mt-2 col-md-12">
+                <div className="col-md-12">
                     {filteredStudentsCount > 0 ? (
                         <StudentList
                             refreshList={retrieveStudents} // Pass the refresh function
@@ -56,7 +56,7 @@ const StudentPage = () => {
                     ) : (
                         <p>Không có sinh viên nào.</p>
                     )}
-                    <div className="row mt-3">
+                    <div className="row mt-2">
                         <div className="col d-flex justify-content-between align-items-center">
                             <button className="btn btn-sm btn-primary" onClick={goToAdd}>
                                 <i className="bi bi-person-plus-fill"></i> Thêm mới

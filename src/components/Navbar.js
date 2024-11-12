@@ -25,6 +25,15 @@ function Navbar() {
                         <li className="nav-item active">
                             <Link className="nav-link" to="/vehicles">Thông Tin Xe Sinh Viên</Link>
                         </li>
+                        <li className="nav-item active">
+                            <Link className="nav-link" to="/class">Thông Tin Lớp</Link>
+                        </li>
+                        <li className="nav-item active">
+                            <Link className="nav-link" to="/nganhs">Thông Tin Ngành Học</Link>
+                        </li>
+                        <li className="nav-item active">
+                            <Link className="nav-link" to="/donvis">Thông Tin Đơn Vị</Link>
+                        </li>
                     </ul>
                 </div>
             </div>

@@ -1,27 +1,23 @@
 import React from 'react';
 // import '../assets/styles/main.css';  // Import CSS for HomePage
 // import xeravaoImg from '../assets/imgs/xeravao.png';  // Import image
-import backGroundIMG1 from '../assets/imgs/backgroundIMG1.jpg'
+// import backGroundIMG1 from '../assets/imgs/xeravao.png'
+import background from '../assets/imgs/background.png'
 
 function HomePage() {
   return (
     <div 
     style={{
-      backgroundImage: `url(${backGroundIMG1})`,
-      // backgroundSize: 'cover',
+      backgroundImage: `url(${background})`,
+      backgroundSize: 'cover',
       backgroundPosition: 'center',
       minHeight: '85vh',
-      marginTop: '-10px',
-      // width: '90',
-      // height: '550',
-    }}>
-      
-      {/* <h1>Welcome to the HomePage</h1> */}
-      {/* <img 
-        src={xeravaoImg} 
-        alt="Description of the image" 
-        className="homepage-image"
-      /> */}
+      // marginTop: '20px',
+      // margin: '60px',
+      width: '80',
+      height: '350',
+    }}
+    >
     </div>
   );
 }

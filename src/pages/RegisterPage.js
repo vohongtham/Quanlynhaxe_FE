@@ -87,8 +87,8 @@ function RegisterPage() {
     return (
         <section className="vh-90 d-flex justify-content-center align-items-center text-center">
             <div className="container-fluid h-custom bg-white text-dark">
-                <div className="row d-flex justify-content-center align-items-center h-70">
-                    <div className="col-md-8 col-lg-6 col-xl-4">
+                <div className="row justify-content-center align-items-center h-70">
+                    <div className="col-md-8 col-lg-6">
                         <Formik
                             initialValues={{
                                 mssv: '',
@@ -106,7 +106,7 @@ function RegisterPage() {
                         >
                             {({ isSubmitting }) => (
                                 <Form>
-                                    <h2 className="text-center">Đăng ký</h2>
+                                    <h2 className="text-center">Đăng Ký</h2>
                                     <div className='row'>
                                         <div className='col-md-6 pb-2'>
                                             <div className="form-outline mb-2">

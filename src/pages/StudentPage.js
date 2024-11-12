@@ -8,7 +8,6 @@ const StudentPage = () => {
     <div className="student-page">
       <SidebarStudent />
       <div className="content">
-        {/* <h1>Student Page</h1> */}
         {/* Renders the child routes */}
         <Outlet />
       </div>
